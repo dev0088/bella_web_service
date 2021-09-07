@@ -11,6 +11,6 @@ docker run \
   --hostname bella_mongodb \
   --restart unless-stopped \
   -p 6379:6379 \
-  -d mongodb
+  -d mongo
 
 yes | docker system prune
