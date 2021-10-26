@@ -1,15 +1,15 @@
 #!/usr/bin/env sh
 
-docker stop bella-mongod
+docker stop bella-mongodb
 
 yes | docker system prune
 
-docker network create \
-  --driver=bridge \
-  --subnet=172.20.0.0/16 \
-  --ip-range=172.20.0.0/16 \
-  --gateway=172.20.0.1\
-  bella
+# docker network create \
+#   --driver=bridge \
+#   --subnet=172.20.0.0/16 \
+#   --ip-range=172.20.0.0/16 \
+#   --gateway=172.20.0.1\
+#   bella
 
 docker run \
   --name bella-mongodb \
