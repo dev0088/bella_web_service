@@ -17,6 +17,7 @@ docker run \
   --ip 172.20.0.10 \
   --hostname bella_mongodb \
   --restart unless-stopped \
+   -v $PWD/mongodb/:/data/db:rw \
   -p 27017:27017 \
   -d mongo
 
