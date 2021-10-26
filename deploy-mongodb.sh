@@ -4,13 +4,20 @@ docker stop bella-mongod
 
 yes | docker system prune
 
+docker network create \
+  --driver=bridge \
+  --subnet=172.20.0.0/16 \
+  --ip-range=172.20.0.0/16 \
+  --gateway=172.20.0.1\
+  bella
+
 docker run \
   --name bella-mongodb \
   --network bella \
   --ip 172.20.0.10 \
   --hostname bella_mongodb \
   --restart unless-stopped \
-  -p 6379:6379 \
+  -p 27017:27017 \
   -d mongo
 
 yes | docker system prune
